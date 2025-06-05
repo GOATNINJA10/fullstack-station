@@ -1,20 +1,20 @@
 # Fullstack Station Project
 
-This is a fullstack project for managing charging stations. The backend is deployed on Render, and the frontend is deployed on Netlify.
+This is a fullstack project for managing charging stations. The backend is deployed on Railway, and the frontend is deployed on Netlify.
 
 ## Project Overview
 
 - Backend: Express.js server with REST API endpoints for authentication and charging station management.
 - Frontend: React application using Vite, connecting to the backend API.
 - Authentication: JWT-based authentication with protected routes.
-- Deployment: Backend deployed on Render, frontend deployed on Netlify.
+- Deployment: Backend deployed on Railway, frontend deployed on Netlify.
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn
 - Supabase (for local development)
-- Render account (for backend deployment)
+- Railway account (for backend deployment)
 - Netlify account (for frontend deployment)
 
 ## Environment Variables
@@ -26,7 +26,7 @@ PORT=3001
 VITE_SUPABASE_URL=your_supabase_connection_string
 VITE_SUPABASE_ANON_KEY=supabase_secret_key
 JWT_SECRET=your_jwt_secret
-VITE_API_URL=your_render_url
+VITE_API_URL=your_railway_url
 ```
 
 ## Backend Setup and Deployment
@@ -41,14 +41,14 @@ node index.js
 
 The backend server will run on `http://localhost:3001`.
 
-### Deployment on Render
+### Deployment on Railway
 
 1. Push your backend code to a Git repository.
-2. Create a new Web Service on Render.
+2. Create a new Web Service on Railway.
 3. Connect your repository and set the build and start commands.
-4. Set environment variables on Render dashboard (PORT, MONGODB_URI, JWT_SECRET).
+4. Set environment variables on Railway dashboard (PORT, SUPABASE_URI, JWT_SECRET).
 5. Deploy the service.
-6. Note the Render URL (e.g., `https://fullstack-station.onrender.com`).
+6. Note the Railway URL (e.g., `https://fullstack-station.railway.app`).
 
 ## Frontend Setup and Deployment
 
@@ -90,10 +90,10 @@ npm run build
 dist
 ```
 
-5. Set environment variable `VITE_API_URL` to your Render backend URL with `/api` suffix, e.g.:
+5. Set environment variable `VITE_API_URL` to your Railway backend URL with `/api` suffix, e.g.:
 
 ```
-https://fullstack-station.onrender.com/api
+https://fullstack-station.railway.app/api
 ```
 
 6. Deploy the site.
