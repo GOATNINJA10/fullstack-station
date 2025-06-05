@@ -55,7 +55,7 @@ export const getAllStations = async (req, res) => {
   try {
     const { status, connectorType, minPower, maxPower } = req.query;
     
-    let query = supabase.from('charging_stations').select('*');
+    let query = supabase.from('charging_stations').select('*').eq('created_by', req.user.id);
     
     // Apply filters if provided
     if (status && status !== 'all') {
