@@ -109,7 +109,3 @@ https://fullstack-station.onrender.com/api
 
 - Ensure CORS is enabled on the backend to allow requests from the frontend domain.
 - Update environment variables accordingly for different environments (development, production).
-
-## License
-
-This project is licensed under the MIT License.
