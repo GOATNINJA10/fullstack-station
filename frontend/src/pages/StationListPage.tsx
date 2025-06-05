@@ -5,8 +5,10 @@ import StationCard from '../components/StationCard';
 import StationFilter from '../components/StationFilter';
 import { ChargingStation, ChargingStationFilters } from '../types';
 import { getAllStations, deleteStation } from '../services/stationService';
+import { useAuth } from '../contexts/AuthContext';
 
 const StationListPage: React.FC = () => {
+  const { authState } = useAuth();
   const [stations, setStations] = useState<ChargingStation[]>([]);
   const [filteredStations, setFilteredStations] = useState<ChargingStation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -14,8 +16,15 @@ const StationListPage: React.FC = () => {
   const [connectorTypes, setConnectorTypes] = useState<string[]>([]);
   
   useEffect(() => {
-    fetchStations();
-  }, []);
+    if (authState.isAuthenticated) {
+      fetchStations();
+    } else {
+      // Clear stations when not authenticated
+      setStations([]);
+      setFilteredStations([]);
+      setConnectorTypes([]);
+    }
+  }, [authState.token]);
   
   const fetchStations = async () => {
     try {
